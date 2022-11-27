@@ -33,9 +33,9 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.100.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.100.0/examples/js/controls/OrbitControls.js"></script>
 
-<div class="footer">
+<!-- <div class="footer">
     P. Tran
-</div>
+</div> -->
 <script>
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
@@ -97,6 +97,7 @@
        
             void main(){
                 vec3 pos = position;
+                pos.y = mod(pos.y + speed * time, 100.) - 50.;
                 
                 vec3 h = pos / 2.5;
                 h.y = 4. + 1.2 * h.y - abs(h.x) * sqrt(max((20. - abs(h.x)) / 15., 0.));
